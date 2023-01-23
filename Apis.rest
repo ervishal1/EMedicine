@@ -21,7 +21,7 @@ POST api/cart/ordreList
 
 Admin Api's :
 
-POST api/admin/usersList
+GET api/admin/usersList
 
 
 

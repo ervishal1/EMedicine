@@ -3,6 +3,7 @@ using EMedicine.Repositories.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Linq;
 
 namespace EMedicine.Controllers
 {
@@ -19,7 +20,6 @@ namespace EMedicine.Controllers
 
 		[HttpPost]
 		[Route("registration")]
-
 		public Response register(Users users)
 		{
 			var res = _unitOfWork.Users.Add(users);
@@ -40,7 +40,8 @@ namespace EMedicine.Controllers
 			var data = _unitOfWork.Users.LoginAuth(user);
 			if (data)
 			{
-				return (new Response { StatusCode = 200, StatusMessage = "User Is Valid" });
+				var d = _unitOfWork.Users.Find(x => x.Email == user.Email).FirstOrDefault();
+				return (new Response { StatusCode = 200, StatusMessage = "User Is Valid",User = d });
 			}
 			return (new Response { StatusCode = 100, StatusMessage = "User Is Faild!" });
 		}

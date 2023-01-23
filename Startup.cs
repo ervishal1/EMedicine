@@ -37,6 +37,8 @@ namespace EMedicine
 			services.AddTransient<IOrdersRepo, OrdersRepo>();
 			services.AddTransient<IUnitOfWork,UnitOfWork>();
 			services.AddControllers();
+
+			services.AddCors(c => { c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()); });
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +52,7 @@ namespace EMedicine
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
-
+			app.UseCors(cors => cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
