@@ -1,0 +1,29 @@
+﻿Users Api's :
+
+GET api/users/test
+GET api/users/viewUser/{id}
+POST api/users/registration
+POST api/users/login
+PUT api/users/updateProfile
+
+Medicines Api's :
+
+GET api/medicines/viewMedicine/{id}
+GET api/medicines/listMedicine
+POST api/medicines/addMedicine
+POST api/medicines/UpdateMedicine
+
+Cart Api's :
+
+POST api/cart/addToCart
+POST api/cart/placeOrder
+POST api/cart/ordreList
+
+Admin Api's :
+
+POST api/admin/usersList
+
+
+
+
+

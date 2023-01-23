@@ -57,8 +57,8 @@ namespace EMedicine.Controllers
 			return (new Response { StatusCode = 200, StatusMessage = "User Is Found", User = res });
 		}
 
-		[HttpPost]
-		[Route("registration")]
+		[HttpPut]
+		[Route("updateProfile")]
 		public Response UpdateProfile(Users users)
 		{
 			var res = _unitOfWork.Users.UpdateProfile(users);
