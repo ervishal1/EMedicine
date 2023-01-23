@@ -13,7 +13,9 @@ namespace EMedicine.Repositories
 	{
 
 		protected readonly DAL _context;
+
 		private DbSet<T> _dbSet;
+
 		public GenericRepository(DAL context)
 		{
 			_context = context;

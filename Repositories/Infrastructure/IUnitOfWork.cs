@@ -2,7 +2,12 @@
 {
 	public interface IUnitOfWork
 	{
-		IUsersRepo Users { get; }
-		void save();
+		public IUsersRepo Users { get; }
+		public ICartRepo Cart { get; }
+		public IOrdersRepo Orders { get; }
+		public IMedicineRepo Medicines { get; }
+
+		public void save();
+
 	}
 }

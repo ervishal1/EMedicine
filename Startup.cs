@@ -30,11 +30,13 @@ namespace EMedicine
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
 			services.AddDbContext<DAL>(Options => Options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
 			services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 			services.AddTransient<IUsersRepo, UsersRepo>();
+			services.AddTransient<ICartRepo, CartRepo>();
+			services.AddTransient<IOrdersRepo, OrdersRepo>();
 			services.AddTransient<IUnitOfWork,UnitOfWork>();
+			services.AddControllers();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

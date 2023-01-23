@@ -11,9 +11,16 @@ namespace EMedicine.Repositories
 		{
 			_context = context;
 			Users = new UsersRepo(_context);
+			Cart = new CartRepo(_context);
+			Orders = new OrdersRepo(_context);
+			Medicines = new MedicineRepo(_context);
 		}
 		
 		public IUsersRepo Users { get; private set; }
+		public ICartRepo Cart { get; private set; }
+		public IOrdersRepo Orders { get; private set; }
+		public IMedicineRepo Medicines { get; private set; }
+
 
 		public void save()
 		{
